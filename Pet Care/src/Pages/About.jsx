@@ -1,11 +1,13 @@
 import React from 'react'
 import aboutImage from '../assets/Hero.png'
+import Navbar from '../Components/Navbar'
 
 const About = () => {
   return (
     <div className='bg-indigo-100 min-h-screen w-full'>
+      <Navbar />
       <div className='px-4 py-8 md:px-28 md:py-10 mx-10 '>
-        <h1 className='text-4xl md:text-6xl font-bold text-center mb-10 text-indigo-900 font-serif'>About Dr. Simran</h1>
+        <h1 className='text-4xl md:text-6xl font-bold text-center mb-10 text-indigo-900 font-serif'>Welcome!</h1>
         <div className='flex flex-col md:flex-row items-center md:items-start gap-10'>
           <div className='w-full md:w-1/2 flex justify-center'>
             <img src={aboutImage} alt="About Dr. Simran" className='w-64 md:w-full' />

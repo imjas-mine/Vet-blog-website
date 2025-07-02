@@ -8,7 +8,6 @@ const Home = () => {
     <div className='bg-indigo-100 min-h-screen w-full'>
       <Navbar />
       <Hero />
-      <About/>
     </div>
   )
 }
