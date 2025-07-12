@@ -1,5 +1,6 @@
 package com.simran.blog.blog_backend.Model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
@@ -17,13 +18,29 @@ public class Post {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	private String title;
 
 	@Column(columnDefinition = "TEXT")
 	private String description;
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	private String category;
-	private LocalDateTime postedOn;
+	private LocalDate postedOn;
 
 	public String getTitle() {
 		return title;
@@ -41,11 +58,11 @@ public class Post {
 		this.category = category;
 	}
 
-	public LocalDateTime getPostedOn() {
+	public LocalDate getPostedOn() {
 		return postedOn;
 	}
 
-	public void setPostedOn(LocalDateTime postedOn) {
+	public void setPostedOn(LocalDate postedOn) {
 		this.postedOn = postedOn;
 	}
 
