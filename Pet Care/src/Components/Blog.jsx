@@ -1,6 +1,15 @@
-import React from 'react'
+import React, { use } from 'react'
+import { Navigate, useNavigate } from 'react-router-dom'
+
 
 const Blog = ({ id,image, title, description,category, date }) => {
+  const navigate=useNavigate();
+
+  function handleClick(id){
+    console.log("inside function")
+    navigate(`/BlogDetail/${id}`)
+  }
+
   return (
     <div className='bg-white rounded-xl shadow-md overflow-hidden w-full hover:shadow-xl transition-shadow duration-300'>
       <div className='aspect-[16/9] overflow-hidden'>
@@ -25,10 +34,10 @@ const Blog = ({ id,image, title, description,category, date }) => {
           {description}
         </p>
         
-        <button onClick={()=>{}} className='bg-indigo-500 text-white px-6 py-2.5 rounded-lg cursor-pointer hover:bg-indigo-600 transition-colors duration-300 text-sm font-medium'>
+        <button onClick={()=>{handleClick(id)}} className='bg-indigo-500 text-white px-6 py-2.5 rounded-lg cursor-pointer hover:bg-indigo-600 transition-colors duration-300 text-sm font-medium'>
           Read More
         </button>
-      </div>
+      </div>  
     </div>
   )
 }
