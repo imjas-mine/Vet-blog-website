@@ -5,7 +5,8 @@ import About from './Pages/About'
 import Blogs from './Pages/Blogs'
 import Services from './Pages/Services'
 import BlogDetail from './Pages/BlogDetail'
-
+import Login from './Pages/Login'
+import AddBlog from './Pages/AddBlog'
 function App() {
  
   return (
@@ -16,7 +17,8 @@ function App() {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/services" element={<Services />} />
         <Route path="/BlogDetail/:id" element={<BlogDetail />} />
-        
+        <Route path="/login" element={<Login />} />
+        <Route path="/add-blog" element={<AddBlog/>} />
       </Routes>
     </BrowserRouter>
   )
