@@ -7,6 +7,7 @@ import Services from './Pages/Services'
 import BlogDetail from './Pages/BlogDetail'
 import Login from './Pages/Login'
 import AddBlog from './Pages/AddBlog'
+import UpdateBlog from './Pages/UpdateBlog'
 function App() {
  
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/BlogDetail/:id" element={<BlogDetail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/add-blog" element={<AddBlog/>} />
+        <Route path="/UpdateBlog/:id" element={<UpdateBlog/>} />
       </Routes>
     </BrowserRouter>
   )

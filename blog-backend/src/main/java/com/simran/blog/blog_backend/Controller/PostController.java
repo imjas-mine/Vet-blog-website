@@ -59,6 +59,7 @@ public class PostController {
 		existingPost.setTitle(updatedPost.getTitle());
 		existingPost.setCategory(updatedPost.getCategory());
 		existingPost.setDescription(updatedPost.getDescription());
+		existingPost.setPostedOn(LocalDate.now());
 		
 		return postRepo.save(existingPost);
 	}

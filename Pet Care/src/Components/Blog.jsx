@@ -1,14 +1,19 @@
 import React, { use } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 
-const Blog = ({ id, image, title, description, category, date,onDelete }) => {
+const Blog = ({ id, image, title, description, category, date, onDelete }) => {
   const navigate = useNavigate();
 
   function handleClick(id) {
     console.log("navigating to blog detail page with id:", id);
     navigate(`/BlogDetail/${id}`);
   }
-
+  function handleUpdate(id) {
+    console.log("navigating to update blog page with id:", id);
+    navigate(`/UpdateBlog/${id}`, {
+      state: { id, title, description, category, image, date }
+    });
+  }
   async function handleDelete(id) {
     console.log("trying to delete blog with id:", id);
 
@@ -65,7 +70,10 @@ const Blog = ({ id, image, title, description, category, date,onDelete }) => {
           Read More
         </button>
 
-        <button className="bg-indigo-500 text-white px-6 py-2.5 ml-28 rounded-lg cursor-pointer hover:bg-indigo-600 transition-colors duration-300 text-sm font-medium">
+        <button 
+        onClick={()=>{handleUpdate(id)}}
+         className="bg-indigo-500 text-white px-6 py-2.5 ml-28 rounded-lg cursor-pointer hover:bg-indigo-600 transition-colors duration-300 text-sm font-medium">
+          
           Update
         </button>
 
