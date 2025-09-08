@@ -53,8 +53,6 @@ public class PostController {
 	
 	@PutMapping("/{id}")
 	public Post updatePostById(@PathVariable Integer id,@RequestBody Post updatedPost) {
-		
-		
 		Post existingPost=getPostById(id);
 		existingPost.setTitle(updatedPost.getTitle());
 		existingPost.setCategory(updatedPost.getCategory());

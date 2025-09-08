@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 const Blogs = () => {
   const [Blogs, setBlogs] = useState([]);
   const token= localStorage.getItem("token");
+  const [isAuthorized, setisAuthorized] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
     async function getBlogs() {
@@ -23,6 +24,37 @@ const Blogs = () => {
     getBlogs();
   }, []);
 
+  useEffect(() => {
+    async function  validateToken() {
+      if (!token) {
+        console.log("No token found");
+        setisAuthorized(false);
+        return;
+      }
+      try {
+        const res=await fetch("http://localhost:8080/api/auth/validate",{
+          method:"GET",
+          headers:{
+          "Authorization":`Bearer ${token}`,}
+        })
+       
+        if(res.status===200){
+          console.log("Token is valid");
+          setisAuthorized(true);
+        } else{
+          console.log("Token is invalid");
+          setisAuthorized(false);
+        }
+      } catch (error) {
+
+        console.error("Error validating token:", error);
+        setisAuthorized(false);
+      }
+    }
+    validateToken();
+  }, [token]);
+  
+
   return (
     <div className="bg-indigo-100 min-h-screen w-full">
       <Navbar />
@@ -35,7 +67,10 @@ const Blogs = () => {
             Expert advice and insights to help you provide the best care for
             your beloved pets
           </p>
+
+          {isAuthorized &&
           <button onClick={()=>navigate("/add-blog")} className="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 mx-auto">Add Blogs</button>
+          }
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-11">
             {Blogs.length>0 ? (
@@ -48,6 +83,7 @@ const Blogs = () => {
                   description={post.description}
                   category={post.category}
                   date={post.postedOn}
+                  isAuthorized={isAuthorized}
                   onDelete={(id) => setBlogs((prev) => prev.filter((b) => b.id !== id))}
                 />
               ))
