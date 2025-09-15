@@ -1,7 +1,16 @@
 import React, { use } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 
-const Blog = ({ id, image, title, description, category, date, isAuthorized,onDelete }) => {
+const Blog = ({
+  id,
+  image,
+  title,
+  description,
+  category,
+  date,
+  isAuthorized,
+  onDelete,
+}) => {
   const navigate = useNavigate();
 
   function handleClick(id) {
@@ -11,7 +20,7 @@ const Blog = ({ id, image, title, description, category, date, isAuthorized,onDe
   function handleUpdate(id) {
     console.log("navigating to update blog page with id:", id);
     navigate(`/UpdateBlog/${id}`, {
-      state: { id, title, description, category, image, date }
+      state: { id, title, description, category, image, date },
     });
   }
   async function handleDelete(id) {
@@ -61,35 +70,37 @@ const Blog = ({ id, image, title, description, category, date, isAuthorized,onDe
           {description}
         </p>
 
-        <button
-          onClick={() => {
-            handleClick(id);
-          }}
-          className="bg-indigo-500 text-white px-6 py-2.5 rounded-lg cursor-pointer hover:bg-indigo-600 transition-colors duration-300 text-sm font-medium"
-        >
-          Read More
-        </button>
-
-{ isAuthorized &&
-       ( <button 
-        onClick={()=>{handleUpdate(id)}}
-         className="bg-indigo-500 text-white px-6 py-2.5 ml-28 rounded-lg cursor-pointer hover:bg-indigo-600 transition-colors duration-300 text-sm font-medium">
-          
-          Update
-        </button>
-       )}
-        { isAuthorized && 
-        ( 
-          
-<button
-          onClick={() => {
-            handleDelete(id);
-          }}
-          className="bg-red-700 text-white px-6 py-2.5 ml-4 rounded-lg cursor-pointer hover:bg-red-400 transition-colors duration-300 text-sm font-medium"
+        <div className="flex flex-col md:flex-row md:items-center gap-4 mt-4">
+          <button
+            onClick={() => {
+              handleClick(id);
+            }}
+            className="bg-indigo-500 text-white px-6 py-2.5 rounded-lg cursor-pointer hover:bg-indigo-600 transition-colors duration-300 text-sm font-medium w-full md:w-auto"
           >
-          Delete
-        </button>
-        )}
+            Read More
+          </button>
+
+          {isAuthorized && (
+            <button
+              onClick={() => {
+                handleUpdate(id);
+              }}
+              className="bg-indigo-500 text-white px-6 py-2.5 rounded-lg cursor-pointer hover:bg-indigo-600 transition-colors duration-300 text-sm font-medium w-full md:w-auto"
+            >
+              Update
+            </button>
+          )}
+          {isAuthorized && (
+            <button
+              onClick={() => {
+                handleDelete(id);
+              }}
+              className="bg-red-700 text-white px-6 py-2.5 rounded-lg cursor-pointer hover:bg-red-400 transition-colors duration-300 text-sm font-medium w-full md:w-auto"
+            >
+              Delete
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 const Blogs = () => {
   const [Blogs, setBlogs] = useState([]);
-  const token= localStorage.getItem("token");
+  const token = localStorage.getItem("token");
   const [isAuthorized, setisAuthorized] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
@@ -25,35 +25,34 @@ const Blogs = () => {
   }, []);
 
   useEffect(() => {
-    async function  validateToken() {
+    async function validateToken() {
       if (!token) {
         console.log("No token found");
         setisAuthorized(false);
         return;
       }
       try {
-        const res=await fetch("http://localhost:8080/api/auth/validate",{
-          method:"GET",
-          headers:{
-          "Authorization":`Bearer ${token}`,}
-        })
-       
-        if(res.status===200){
+        const res = await fetch("http://localhost:8080/api/auth/validate", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (res.status === 200) {
           console.log("Token is valid");
           setisAuthorized(true);
-        } else{
+        } else {
           console.log("Token is invalid");
           setisAuthorized(false);
         }
       } catch (error) {
-
         console.error("Error validating token:", error);
         setisAuthorized(false);
       }
     }
     validateToken();
   }, [token]);
-  
 
   return (
     <div className="bg-indigo-100 min-h-screen w-full">
@@ -68,12 +67,19 @@ const Blogs = () => {
             your beloved pets
           </p>
 
-          {isAuthorized &&
-          <button onClick={()=>navigate("/add-blog")} className="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 mx-auto">Add Blogs</button>
-          }
+          {isAuthorized && (
+            <div className="flex justify-center my-8">
+              <button
+                onClick={() => navigate("/add-blog")}
+                className="bg-indigo-600 text-white px-6 py-2 rounded cursor-pointer hover:bg-indigo-700 w-full max-w-xs md:max-w-sm font-semibold transition-colors"
+              >
+                Add Blogs
+              </button>
+            </div>
+          )}
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-11">
-            {Blogs.length>0 ? (
+            {Blogs.length > 0 ? (
               Blogs.map((post) => (
                 <Blog
                   key={post.id}
@@ -84,7 +90,9 @@ const Blogs = () => {
                   category={post.category}
                   date={post.postedOn}
                   isAuthorized={isAuthorized}
-                  onDelete={(id) => setBlogs((prev) => prev.filter((b) => b.id !== id))}
+                  onDelete={(id) =>
+                    setBlogs((prev) => prev.filter((b) => b.id !== id))
+                  }
                 />
               ))
             ) : (
