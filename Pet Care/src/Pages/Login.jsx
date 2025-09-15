@@ -35,29 +35,46 @@ const Login = () => {
   }
 
   return (
-    <div>
+    <div className="bg-indigo-100 min-h-screen w-full">
       <Navbar />
-      <form onSubmit={handleLogin}>
-        <h2>Login</h2>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          required
-        />
-        <br />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          required
-        />
-        <br />
-        <button type="submit">Login</button>
-        {error && <div style={{ color: "red" }}>{error}</div>}
-      </form>
+      <div className="flex items-center justify-center min-h-[80vh] px-4">
+        <div className="max-w-md w-full bg-white rounded-xl shadow-md p-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-indigo-900 font-serif text-center">
+            Login
+          </h2>
+          <form onSubmit={handleLogin} className="space-y-6">
+            <div>
+              <label className="block text-gray-700 font-semibold mb-2">Email</label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                placeholder="Email"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 font-semibold mb-2">Password</label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full cursor-pointer bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition-colors font-semibold"
+            >
+              Login
+            </button>
+            {error && <div className="text-red-600 text-center">{error}</div>}
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
