@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Wellness Exams",
+    "description": "Comprehensive health check-ups to keep your pet healthy and prevent diseases.",
+    "points": ["Annual physicals", "Health screenings", "Preventive care plans"],
+    "icon": "Stethoscope"
+  },
+  {
+    "title": "Vaccinations",
+    "description": "Essential immunizations to protect your pet from serious diseases.",
+    "points": ["Core vaccines", "Lifestyle vaccines", "Vaccination schedules"],
+    "icon": "Syringe"
+  },
+  {
+    "title": "Dental Care",
+    "description": "Complete dental health services to maintain your pet’s oral hygiene.",
+    "points": ["Dental cleanings", "Tooth extractions", "Oral health exams"],
+    "icon": "Heart"
+  },
+  {
+    "title": "Wellness Plans",
+    "description": "Customized health plans tailored to your pet’s specific needs.",
+    "points": ["Puppy/kitten plans", "Senior pet plans", "Routine check-ups"],
+    "icon": "ClipboardCheck"
+  }
+]
