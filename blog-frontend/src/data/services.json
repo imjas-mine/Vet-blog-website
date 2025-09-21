@@ -11,12 +11,7 @@
     "points": ["Core vaccines", "Lifestyle vaccines", "Vaccination schedules"],
     "icon": "Syringe"
   },
-  {
-    "title": "Dental Care",
-    "description": "Complete dental health services to maintain your pet’s oral hygiene.",
-    "points": ["Dental cleanings", "Tooth extractions", "Oral health exams"],
-    "icon": "Heart"
-  },
+
   {
     "title": "Wellness Plans",
     "description": "Customized health plans tailored to your pet’s specific needs.",
