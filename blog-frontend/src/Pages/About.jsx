@@ -1,33 +1,108 @@
-import React from 'react'
-import aboutImage from '../assets/Hero.png'
-import Navbar from '../Components/Navbar'
+import { GraduationCap, Award, Briefcase, MapPin } from "lucide-react";
 
-const About = () => {
+export default function About() {
   return (
-    <div className='bg-indigo-100 min-h-screen w-full'>
-      <Navbar />
-      <div className='px-4 py-8 md:px-28 md:py-10 mx-10 '>
-        <h1 className='text-4xl md:text-6xl font-bold text-center mb-10 text-indigo-900 font-serif'>Welcome!</h1>
-        <div className='flex flex-col md:flex-row items-center md:items-start gap-10'>
-          <div className='w-full md:w-1/2 flex justify-center'>
-            <img src={aboutImage} alt="About Dr. Simran" className='w-64 md:w-full' />
+    <section
+      id="about"
+      className="w-full bg-white py-20 px-6 lg:px-24 flex flex-col items-center"
+    >
+      {/* Section Heading */}
+      <div className="text-center mb-12">
+        <span className="text-xs font-semibold text-blue-500 bg-blue-100 px-4 py-1 rounded-full">
+          About Dr. Simran
+        </span>
+        <h2 className="text-4xl font-bold mt-4 text-gray-800">
+          Meet Your Trusted Veterinarian
+        </h2>
+        <p className="text-gray-500 mt-3 max-w-2xl mx-auto">
+          Dedicated to providing exceptional veterinary care with compassion,
+          expertise, and the latest medical advances.
+        </p>
+      </div>
+
+      {/* Content Layout */}
+      <div className="flex flex-col lg:flex-row items-center gap-12 max-w-7xl w-full">
+        {/* Left Side - Text */}
+        <div className="flex-1">
+          <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+            Dr. Simran Kaur
+          </h3>
+          <p className="text-gray-600 mb-4">
+            With over 5 years of dedicated service in veterinary medicine,
+            Dr. Simran kaur has built a reputation for providing
+            compassionate, comprehensive care for pets of all sizes. Her gentle
+            approach and extensive expertise make her a trusted partner in your
+            pet's health journey.
+          </p>
+          <p className="text-gray-600 mb-8">
+            Dr. Simran believes in building lasting relationships with both
+            pets and their families, ensuring that every visit is comfortable
+            and stress-free. Her commitment to continuing education keeps her
+            at the forefront of veterinary medicine.
+          </p>
+
+          {/* Info Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+            <div className="p-6 bg-gray-50 rounded-xl shadow-sm flex items-start gap-4">
+              <GraduationCap className="text-blue-500 w-6 h-6" />
+              <div>
+                <h4 className="font-semibold text-gray-800">Education</h4>
+                <p className="text-sm text-gray-500">
+                  G.B. Pant University
+                </p>
+              </div>
+            </div>
+            <div className="p-6 bg-gray-50 rounded-xl shadow-sm flex items-start gap-4">
+              <Award className="text-orange-500 w-6 h-6" />
+              <div>
+                <h4 className="font-semibold text-gray-800">Certifications</h4>
+                <p className="text-sm text-gray-500">
+                  NAVLE Certified, Emergency Care Specialist
+                </p>
+              </div>
+            </div>
+            <div className="p-6 bg-gray-50 rounded-xl shadow-sm flex items-start gap-4">
+              <Briefcase className="text-green-600 w-6 h-6" />
+              <div>
+                <h4 className="font-semibold text-gray-800">Experience</h4>
+                <p className="text-sm text-gray-500">
+                  5+ years serving the community
+                </p>
+              </div>
+            </div>
+            <div className="p-6 bg-gray-50 rounded-xl shadow-sm flex items-start gap-4">
+              <MapPin className="text-blue-400 w-6 h-6" />
+              <div>
+                <h4 className="font-semibold text-gray-800">Location</h4>
+                <p className="text-sm text-gray-500">
+                  Cambridge, Ontario
+                </p>
+              </div>
+            </div>
           </div>
-          <div className='w-full md:w-1/2'>
-            <p className='md:text-xl text-gray-700 mb-6 font-sans'>
-              Dr. Simran is a dedicated pet care specialist with a passion for helping animals live their best lives. With years of experience in veterinary care, she has a deep understanding of animal behavior and health.
+
+          {/* Personal Mission */}
+          <div className="border-l-4 border-blue-400 bg-blue-50 p-6 rounded-lg">
+            <h4 className="font-semibold text-gray-800 mb-2">
+              Personal Mission
+            </h4>
+            <p className="text-gray-600 italic">
+              “Every pet deserves compassionate, expert care. I’m here to ensure
+              your beloved companion receives the best treatment while feeling
+              safe and loved throughout their healthcare journey.”
             </p>
-            <ul className='list-disc pl-5 text-gray-700 space-y-2 text-sm md:text-xl font-sans'>
-              <li>15+ years of veterinary experience</li>
-              <li>1000+ happy pets cared for</li>
-              <li>500+ families served</li>
-              <li>Comprehensive services: checkups, vaccinations, surgery, dental care, emergency care, and nutrition</li>
-              <li>Compassionate, patient-centered approach</li>
-            </ul>
           </div>
         </div>
-      </div>
-    </div>
-  )
-}
 
-export default About
+        {/* Right Side - Image */}
+        <div className="flex-1 flex justify-center">
+          <img
+            src="src\assets\image.png"
+            alt="Dr. Simran"
+            className="rounded-xl shadow-lg object-cover w-3/4"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}

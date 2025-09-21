@@ -52,7 +52,7 @@ public class AuthController {
 		var authentication=SecurityContextHolder.getContext().getAuthentication();
 		
 		if(authentication==null || !authentication.isAuthenticated()) {
-			System.out.println("invalid or expried token");
+			System.out.println("invalid or expired token");
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid or expired token");
 		}
 		

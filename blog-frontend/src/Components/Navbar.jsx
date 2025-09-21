@@ -1,37 +1,65 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState } from "react";
+import { Phone, Menu, X } from "lucide-react";
 
-const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false)
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className='bg-indigo-400 mx-10 rounded-2xl flex items-center justify-between px-4 md:px-10 py-4 sticky top-4 z-10'>
-      <div className='text-white text-2xl md:text-4xl font-bold font-serif'><p>Dr.Simran</p> <p className='text-sm  font-sans'>VETERINARIAN</p></div>
-      
-      <button
-        className='md:hidden text-white text-3xl focus:outline-none hover:text-gray-300 transition-colors duration-300 cursor-pointer'
-        onClick={() => setMenuOpen(!menuOpen)}
-        aria-label='Toggle menu'
-      >
-        {menuOpen ? '✕' : '☰'}
-      </button>
-      
-      <div className='hidden md:flex gap-10 text-white text-lg font-semibold'>
-        <Link to="/" className='hover:text-gray-300'>Home</Link>
-        <Link to="/about" className='hover:text-gray-300'>About Dr.Simran</Link>
-        <Link to="/blogs" className='hover:text-gray-300'>Blogs</Link>
-        <Link to="/services" className='hover:text-gray-300'>Services & Contact</Link>
+    <nav className="w-full flex justify-between items-center py-4 px-6 md:px-12 bg-white shadow-sm fixed top-0 left-0 z-50">
+     
+      <div className="text-lg md:text-xl font-bold text-sky-600">
+        Dr. Simran Kaur
       </div>
-   
-      {menuOpen && (
-        <div className='absolute top-20 left-0 w-full flex flex-col items-center gap-6 bg-indigo-400 rounded-b-2xl py-6 shadow-lg md:hidden z-20'>
-          <Link to="/" className='hover:text-gray-300 text-white text-lg font-semibold' onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link to="/about" className='hover:text-gray-300 text-white text-lg font-semibold' onClick={() => setMenuOpen(false)}>About Dr.Simran</Link>
-          <Link to="/blogs" className='hover:text-gray-300 text-white text-lg font-semibold' onClick={() => setMenuOpen(false)}>Blogs</Link>
-          <Link to="/services" className='hover:text-gray-300 text-white text-lg font-semibold' onClick={() => setMenuOpen(false)}>Services & Contact</Link>
+
+      {/* laptop size */}
+      <ul className="hidden md:flex gap-8 text-gray-700 font-medium">
+        <li className="hover:text-sky-600 cursor-pointer">About</li>
+        <li className="hover:text-sky-600 cursor-pointer">Services</li>
+        <li className="hover:text-sky-600 cursor-pointer">Pricing</li>
+        <li className="hover:text-sky-600 cursor-pointer">FAQ</li>
+        <li className="hover:text-sky-600 cursor-pointer">Blog</li>
+      </ul>
+
+      
+      <div className="hidden md:flex items-center gap-4">
+        <div className="flex items-center gap-2 text-gray-700">
+          <Phone size={18} className="text-sky-600" />
+          <span>(555) 533- 8833</span>
+        </div>
+        <button className="bg-sky-600 text-white px-4 py-2 rounded-lg hover:bg-sky-700 transition">
+          Book Appointment
+        </button>
+      </div>
+
+      {/* Mobile Hamburger */}
+      <div className="md:hidden">
+        {isOpen ? (
+          <X size={28} onClick={() => setIsOpen(false)} className="cursor-pointer" />
+        ) : (
+          <Menu size={28} onClick={() => setIsOpen(true)} className="cursor-pointer" />
+        )}
+      </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="absolute top-16 left-0 w-full bg-white shadow-md flex flex-col items-center py-6 space-y-6 md:hidden">
+          <a href="#about" className="hover:text-sky-600">About</a>
+          <a href="#services" className="hover:text-sky-600">Services</a>
+          <a href="#pricing" className="hover:text-sky-600">Pricing</a>
+          <a href="#faq" className="hover:text-sky-600">FAQ</a>
+          <a href="#blog" className="hover:text-sky-600">Blog</a>
+
+          <div className="flex flex-col gap-4 items-center">
+            <div className="flex items-center gap-2 text-gray-700">
+              <Phone size={18} className="text-sky-600" />
+              <span>(555) 123-PETS</span>
+            </div>
+            <button className="bg-sky-600 text-white px-6 py-2 rounded-lg hover:bg-sky-700 transition">
+              Book Appointment
+            </button>
+          </div>
         </div>
       )}
-    </div>
-  )
+    </nav>
+  );
 }
-
-export default Navbar
