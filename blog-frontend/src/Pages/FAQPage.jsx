@@ -1,3 +1,4 @@
+import FAQList from "../Components/FAQList";
 import FAQTabs from "../Components/FAQTabs";
 
 export default function FAQPage() {
@@ -14,7 +15,7 @@ export default function FAQPage() {
           Find answers to common questions from pet owners, veterinary professionals, and partner clinics.
         </p>
       </div>
-      <FAQTabs />
+      <FAQList />
     </div>
   );
 }
