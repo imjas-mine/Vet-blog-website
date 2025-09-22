@@ -1,0 +1,18 @@
+[
+  {
+    "question": "How can I manage multiple pet records efficiently?",
+    "answer": "Our system allows you to manage patient records digitally with reminders for vaccinations and follow-up visits."
+  },
+  {
+    "question": "Do you provide access to lab results online?",
+    "answer": "Yes, veterinarians can upload and access lab results securely through the online portal."
+  },
+  {
+    "question": "Can I integrate appointment scheduling with my clinic’s calendar?",
+    "answer": "Yes, the platform supports integration with Google Calendar and Outlook for streamlined scheduling."
+  },
+  {
+    "question": "Is telemedicine supported for consultations?",
+    "answer": "Absolutely, veterinarians can conduct video consultations with pet owners directly through the platform."
+  }
+]
