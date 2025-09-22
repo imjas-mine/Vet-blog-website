@@ -10,6 +10,7 @@ import AddBlog from './Pages/AddBlog'
 import UpdateBlog from './Pages/UpdateBlog'
 import Navbar from './Components/Navbar'
 import Hero from './Components/Hero'
+import Pricing from './Pages/Pricing'
 function App() {
  
   return (
@@ -18,6 +19,7 @@ function App() {
   <Hero></Hero>
   <About></About>
   <Services></Services>
+  <Pricing></Pricing>
 </div>
   )
 

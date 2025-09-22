@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Basic Care",
+    "price": 150,
+    "period": "per visit",
+    "features": [
+      "Physical examination",
+      "Basic health assessment",
+      "Vaccination consultation",
+      "Health record updates",
+      "Basic nutritional guidance"
+    ],
+    "buttonText": "Choose Plan"
+  },
+  {
+    "title": "Comprehensive Care",
+    "price": 280,
+    "period": "per visit",
+    "features": [
+      "Complete physical examination",
+      "Blood work & lab tests",
+      "Vaccination updates",
+      "Dental examination",
+      "Nutritional consultation",
+      "Health monitoring plan",
+      "Follow-up care included"
+    ],
+    "buttonText": "Get Started",
+    "highlighted": true,
+    "badge": "Most Popular"
+  },
+  {
+    "title": "Wellness Package",
+    "price": 450,
+    "period": "annual plan",
+    "features": [
+      "Unlimited wellness visits",
+      "All routine vaccinations",
+      "Annual dental cleaning",
+      "Blood work & diagnostics",
+      "Emergency consultation priority",
+      "20% off additional services",
+      "24/7 phone support"
+    ],
+    "buttonText": "Choose Plan"
+  }
+]
