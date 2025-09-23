@@ -2,14 +2,27 @@ import React, { useEffect } from "react";
 import Navbar from "../Components/Navbar";
 import Blog from "../Components/Blog";
 import HeroImage from "../assets/Hero.png";
-import { data } from "react-router-dom";
+import { Filter } from "lucide-react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 const Blogs = () => {
   const [Blogs, setBlogs] = useState([]);
   const token = localStorage.getItem("token");
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [isAuthorized, setisAuthorized] = useState(false);
-  const navigate = useNavigate();
+
+  const filteredPosts =
+    selectedCategory === "All"
+      ? Blogs
+      : Blogs.filter((blog) => blog.category === selectedCategory);
+  const categories = [
+    "All",
+    "Pet Health",
+    "Preventive Care",
+    "Emergency Care",
+    "Nutrition",
+    "Dental Care",
+  ];
+
   useEffect(() => {
     async function getBlogs() {
       try {
@@ -55,51 +68,87 @@ const Blogs = () => {
   }, [token]);
 
   return (
-    <div className="bg-indigo-100 min-h-screen w-full">
-      <Navbar />
-      <div className="px-4 py-8 md:px-28 md:py-10 mx-10">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-bold text-center mb-4 text-indigo-900 font-serif">
-            Pet Care Blogs
-          </h1>
-          <p className="text-center text-gray-600 mb-12 text-lg max-w-2xl mx-auto">
-            Expert advice and insights to help you provide the best care for
-            your beloved pets
+    <div className="bg-gray-50 py-12">
+      <div className=" px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto ">
+        
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <span className="text-xs font-medium text-blue-600 bg-blue-100 px-3 py-1 rounded-full">
+            Expert Insights
+          </span>
+          <h2 className="text-3xl font-bold text-gray-900 mt-4">
+            Latest from Our Blog
+          </h2>
+          <p className="text-gray-500 mt-2">
+            Stay informed with expert veterinary advice, pet care tips, and the
+            latest insights from Dr. Mitchell.
           </p>
+        </div>
 
-          {isAuthorized && (
-            <div className="flex justify-center my-8">
-              <button
-                onClick={() => navigate("/add-blog")}
-                className="bg-indigo-600 text-white px-6 py-2 rounded cursor-pointer hover:bg-indigo-700 w-full max-w-xs md:max-w-sm font-semibold transition-colors"
-              >
-                Add Blogs
-              </button>
+        {isAuthorized && (
+          <div className="flex justify-center my-8">
+            <button className="bg-indigo-600 text-white px-6 py-2 rounded cursor-pointer hover:bg-indigo-700 w-full max-w-xs md:max-w-sm font-semibold transition-colors">
+              Add Blogs
+            </button>
+          </div>
+        )}
+
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 ">
+          <div className="lg:col-span-3">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-2">
+                <Filter className="w-4 h-4 text-gray-500" />
+                <select
+                  value={selectedCategory}
+                  onChange={(e) => setSelectedCategory(e.target.value)}
+                  className="border rounded-sm px-3 py-1.5 text-sm border-gray-300 text-gray-700 cursor-pointer"
+                >
+                  {categories.map((cat) => (
+                    <option key={cat}>{cat}</option>
+                  ))}
+                </select>
+              </div>
+              <span className="text-sm text-gray-500">
+                {filteredPosts.length} articles found
+              </span>
             </div>
-          )}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-11">
-            {Blogs.length > 0 ? (
-              Blogs.map((post) => (
+          
+            <div className="space-y-6">
+              {filteredPosts.map((post) => (
                 <Blog
                   key={post.id}
                   id={post.id}
-                  image={HeroImage}
                   title={post.title}
                   description={post.description}
                   category={post.category}
-                  date={post.postedOn}
+                  date={post.date}
                   isAuthorized={isAuthorized}
                   onDelete={(id) =>
                     setBlogs((prev) => prev.filter((b) => b.id !== id))
                   }
                 />
-              ))
-            ) : (
-              <div className="col-span-1 md:col-span-2 text-center text-gray-500">
-                <p>No blogs available at the moment.</p>
-              </div>
-            )}
+              ))}
+            </div>
+          </div>
+
+          
+          <div className="hidden lg:block">
+            <h4 className="text-gray-700 font-semibold mb-4">Categories</h4>
+            <div className="space-y-2">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`block w-full text-left px-3 py-2 rounded-md text-sm ${
+                    selectedCategory === cat
+                      ? "bg-blue-500 text-white"
+                      : "text-gray-700 hover:bg-gray-100"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>

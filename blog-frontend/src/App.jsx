@@ -22,6 +22,7 @@ function App() {
   <Services></Services>
   <Pricing></Pricing>
   <FAQPage></FAQPage>
+  <Blogs></Blogs>
 </div>
   )
 

@@ -57,11 +57,11 @@ const BlogForm = ({ initialValues = {}, onSubmit, submitText }) => {
           required
         >
           <option value="" disabled>Select category</option>
-          <option value="Health">Health</option>
+          <option value="Pet Health">Pet Health</option>
           <option value="Nutrition">Nutrition</option>
-          <option value="Training">Training</option>
-          <option value="Behavior">Behavior</option>
-          <option value="General">General</option>
+          <option value="Preventative Care">Preventative Care</option>
+          <option value="Emergency Care">Emergency Care</option>
+          <option value="Dental Care">Dental Care</option>
         </select>
       </div>
 
