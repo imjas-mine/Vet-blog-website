@@ -1,5 +1,5 @@
 import React, { use } from "react";
-
+import { Calendar } from "lucide-react";
 const Blog = ({
   id,
   title,
@@ -8,7 +8,6 @@ const Blog = ({
   date,
   isAuthorized,
   onDelete,
-  
 }) => {
   function handleClick(id) {
     console.log("navigating to blog detail page with id:", id);
@@ -37,13 +36,21 @@ const Blog = ({
       console.log("error deleting the blog");
     }
   }
+  const formattedDate = new Date(date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
   return (
     <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg hover:shadow-blue-200">
-      <div className="flex items-center gap-3 text-sm text-gray-500 mb-3 flex-wrap">
+      <div className="flex items-center gap-4 text-sm text-gray-500 mb-3 flex-wrap">
         <span className="bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-xs font-medium">
           {category}
         </span>
-        <span>{date}</span>
+        <div className="flex gap-0.5 items-center">
+          <Calendar className="w-4 h-4" />
+          <span>{formattedDate}</span>
+        </div>
       </div>
 
       <h3 className="text-lg font-semibold text-gray-900">{title}</h3>

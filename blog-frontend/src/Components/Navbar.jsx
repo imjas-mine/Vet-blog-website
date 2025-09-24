@@ -11,7 +11,7 @@ export default function Navbar() {
         Dr. Simran Kaur
       </div>
 
-      {/* laptop size */}
+      
       <ul className="hidden md:flex gap-8 text-gray-700 font-medium">
         <li className="hover:text-sky-600 cursor-pointer">About</li>
         <li className="hover:text-sky-600 cursor-pointer">Services</li>

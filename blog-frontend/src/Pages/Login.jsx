@@ -22,7 +22,7 @@ const Login = () => {
         const token = await res.text();
         console.log(token);
         localStorage.setItem("token", token);
-      navigate("/blogs");
+        navigate("/");
       } else {
         const errorMsg = await res.text();
         setError(errorMsg);
@@ -44,7 +44,9 @@ const Login = () => {
           </h2>
           <form onSubmit={handleLogin} className="space-y-6">
             <div>
-              <label className="block text-gray-700 font-semibold mb-2">Email</label>
+              <label className="block text-gray-700 font-semibold mb-2">
+                Email
+              </label>
               <input
                 type="email"
                 value={email}
@@ -55,7 +57,9 @@ const Login = () => {
               />
             </div>
             <div>
-              <label className="block text-gray-700 font-semibold mb-2">Password</label>
+              <label className="block text-gray-700 font-semibold mb-2">
+                Password
+              </label>
               <input
                 type="password"
                 value={password}

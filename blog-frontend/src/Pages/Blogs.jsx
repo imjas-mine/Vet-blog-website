@@ -118,14 +118,16 @@ const Blogs = () => {
                   title={post.title}
                   description={post.description}
                   category={post.category}
-                  date={post.date}
+                  date={post.postedOn}
                   isAuthorized={isAuthorized}
                   onDelete={(id) =>
                     setBlogs((prev) => prev.filter((b) => b.id !== id))
                   }
                   
                 />
-              ))}
+                
+              )
+              )}
             </div>
           </div>
 
