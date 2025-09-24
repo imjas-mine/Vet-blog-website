@@ -8,6 +8,7 @@ const Blog = ({
   date,
   isAuthorized,
   onDelete,
+  
 }) => {
   function handleClick(id) {
     console.log("navigating to blog detail page with id:", id);
@@ -37,7 +38,7 @@ const Blog = ({
     }
   }
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
+    <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg hover:shadow-blue-200">
       <div className="flex items-center gap-3 text-sm text-gray-500 mb-3 flex-wrap">
         <span className="bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-xs font-medium">
           {category}

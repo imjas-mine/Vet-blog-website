@@ -70,7 +70,6 @@ const Blogs = () => {
   return (
     <div className="bg-gray-50 py-12">
       <div className=" px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto ">
-        
         <div className="text-center max-w-2xl mx-auto mb-10">
           <span className="text-xs font-medium text-blue-600 bg-blue-100 px-3 py-1 rounded-full">
             Expert Insights
@@ -80,7 +79,7 @@ const Blogs = () => {
           </h2>
           <p className="text-gray-500 mt-2">
             Stay informed with expert veterinary advice, pet care tips, and the
-            latest insights from Dr. Mitchell.
+            latest insights from Dr. Simran.
           </p>
         </div>
 
@@ -111,8 +110,6 @@ const Blogs = () => {
                 {filteredPosts.length} articles found
               </span>
             </div>
-
-          
             <div className="space-y-6">
               {filteredPosts.map((post) => (
                 <Blog
@@ -126,12 +123,12 @@ const Blogs = () => {
                   onDelete={(id) =>
                     setBlogs((prev) => prev.filter((b) => b.id !== id))
                   }
+                  
                 />
               ))}
             </div>
           </div>
 
-          
           <div className="hidden lg:block">
             <h4 className="text-gray-700 font-semibold mb-4">Categories</h4>
             <div className="space-y-2">
