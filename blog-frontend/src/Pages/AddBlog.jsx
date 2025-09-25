@@ -27,7 +27,7 @@ const AddBlog = () => {
         if(res.ok){
 
           console.log("successfully posted the blog");
-          navigate("/blogs");
+          navigate("/");
         }
         else{
           const errMsg=await res.text();
@@ -41,10 +41,10 @@ const AddBlog = () => {
   };
 
   return (
-    <div className="bg-indigo-100 min-h-screen w-full">
+    <div className="bg-indigo-100 h-screen w-full justify-center items-center flex">
       <Navbar />
-      <div className="px-4 py-8 md:px-28 md:py-10 mx-10">
-        <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-md p-8">
+      <div className="px-4 py-8 md:px-28 md:py-10 my-20 w-full">
+        <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-md p-8 ">
           <h1 className="text-3xl md:text-4xl font-bold mb-6 text-indigo-900 font-serif text-center">Add a New Blog</h1>
             <BlogForm 
             initialValues={{ }}

@@ -29,7 +29,7 @@ const UpdateBlog = () => {
         if(res.ok){
 
           console.log("successfully updated the blog");
-          navigate("/blogs");
+          navigate("/");
         }
         else{
           const errMsg=await res.text();

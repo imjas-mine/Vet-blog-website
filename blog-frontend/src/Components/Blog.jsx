@@ -1,5 +1,8 @@
 import React, { use } from "react";
 import { Calendar } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
+
 const Blog = ({
   id,
   title,
@@ -9,11 +12,18 @@ const Blog = ({
   isAuthorized,
   onDelete,
 }) => {
+
+const navigate = useNavigate();
+
   function handleClick(id) {
     console.log("navigating to blog detail page with id:", id);
   }
   function handleUpdate(id) {
     console.log("navigating to update blog page with id:", id);
+    navigate(`/UpdateBlog/${id}`,{
+      state:{id,title,description,category}
+    })
+   
   }
   async function handleDelete(id) {
     console.log("trying to delete blog with id:", id);
@@ -61,27 +71,28 @@ const Blog = ({
         <a className="text-blue-600 font-medium text-sm inline-block cursor-pointer hover:text-blue-400">
           Read Full Article →
         </a>
-
-        {isAuthorized && (
-          <button
-            onClick={() => {
-              handleUpdate(id);
-            }}
-            className="bg-indigo-500 text-white px-6 py-2.5 rounded-lg cursor-pointer hover:bg-indigo-600 transition-colors duration-300 text-sm font-medium w-full md:w-auto"
-          >
-            Update
-          </button>
-        )}
-        {isAuthorized && (
-          <button
-            onClick={() => {
-              handleDelete(id);
-            }}
-            className="bg-red-700 text-white px-6 py-2.5 rounded-lg cursor-pointer hover:bg-red-400 transition-colors duration-300 text-sm font-medium w-full md:w-auto"
-          >
-            Delete
-          </button>
-        )}
+        <div className="flex gap-4">
+          {isAuthorized && (
+            <button
+              onClick={() => {
+                handleUpdate(id);
+              }}
+              className="text-blue-600 font-medium text-sm inline-block cursor-pointer hover:text-blue-400"
+            >
+              Update
+            </button>
+          )}
+          {isAuthorized && (
+            <button
+              onClick={() => {
+                handleDelete(id);
+              }}
+              className="text-red-600 font-medium text-sm inline-block cursor-pointer hover:text-red-400"
+            >
+              Delete
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

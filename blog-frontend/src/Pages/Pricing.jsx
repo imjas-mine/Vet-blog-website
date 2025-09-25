@@ -5,6 +5,7 @@ const Pricing = () => {
   
 
   return (
+     <section id="pricing" >
     <div className="max-w-7xl mx-auto px-6 py-16 text-center">
       <div className="mb-10">
         <small className="inline-block bg-sky-100 text-sky-500 px-3 py-1 rounded-full text-xs">Transparent Pricing</small>
@@ -18,6 +19,7 @@ const Pricing = () => {
         ))}
       </div>
     </div>
+    </section>
   )
 }
 

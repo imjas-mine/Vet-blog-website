@@ -6,7 +6,6 @@ export default function About() {
       id="about"
       className="w-full bg-white py-20 px-6 lg:px-24 flex flex-col items-center"
     >
-      {/* Section Heading */}
       <div className="text-center mb-12">
         <span className="text-xs font-semibold text-blue-500 bg-blue-100 px-4 py-1 rounded-full">
           About Dr. Simran
@@ -20,9 +19,7 @@ export default function About() {
         </p>
       </div>
 
-      {/* Content Layout */}
       <div className="flex flex-col lg:flex-row items-center gap-12 max-w-7xl w-full">
-        {/* Left Side - Text */}
         <div className="flex-1">
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">
             Dr. Simran Kaur
@@ -41,7 +38,6 @@ export default function About() {
             at the forefront of veterinary medicine.
           </p>
 
-          {/* Info Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
             <div className="p-6 bg-gray-50 rounded-xl shadow-sm flex items-start gap-4">
               <GraduationCap className="text-blue-500 w-6 h-6" />
@@ -81,7 +77,6 @@ export default function About() {
             </div>
           </div>
 
-          {/* Personal Mission */}
           <div className="border-l-4 border-blue-400 bg-blue-50 p-6 rounded-lg">
             <h4 className="font-semibold text-gray-800 mb-2">
               Personal Mission
@@ -94,7 +89,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* Right Side - Image */}
         <div className="flex-1 flex justify-center">
           <img
             src="src\assets\image.png"
